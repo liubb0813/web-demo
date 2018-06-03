@@ -5,7 +5,7 @@
 1、npm install
 2、npm run webpack
 
-二、webpack-dev
+二、webpack-vue
 
 1、npm install
 2、
