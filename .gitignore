@@ -3,4 +3,6 @@
 /webpack/dist
 /webpack-vue/node_modules
 /webpack-vue/dist
+/vue/node_modules
+/vue/dist
 *.iml
