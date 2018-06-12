@@ -1,51 +1,13 @@
+import Router from 'vue-router';
 import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
 
-const comp = {
-    props: {
-        text: {
-            type: String
-        }
-    },
-    data() {
-        return {
-            str: 'hello'
-        }
-    },
-    methods: {
-        changeText() {
-            this.$emit('handleText');
-        }
-    },
-    template: `
-        <div>
-            <p>{{text}}</p>
-            <p @click="changeText">{{str}}</p>
-        </div>
-    `
-}
+Vue.use(Router)
 
-const app = new Vue({
-    el: "#root",
-    template: `
-        <div>
-            <comp-one @handleText="text = 'welcome'" :text="text"></comp-one>
-        </div>
-    `,
-    data() {
-        return {
-            text: 'world'
-        }
-    },
-    components: {
-        CompOne: comp
-    }
+new Vue({
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>'
 });
-
-app.$on('test', () => {
-    console.log('111111')
-});
-
-setTimeout(() => {
-    app.$emit('test');
-}, 3000);
-
