@@ -3,14 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-	context: __dirname,
-	entry:'./src/index.js',
-	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'index.js'
-	},
-	module:{
-		rules: [
+    context: __dirname,
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'index.js'
+    },
+    module: {
+        rules: [
             {
                 test: /\.js$/,
                 use: {
@@ -24,19 +24,19 @@ module.exports = {
                 include: path.resolve(__dirname, 'src')
             },
             {
-            	test: /\.css$/,
-            	use: [
+                test: /\.css$/,
+                use: [
                     'style-loader', {
-                        loader : 'css-loader',
-                        options : {
-                            importLoaders : 1                         
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
                         },
                     },
                     'postcss-loader'
                 ]
             },
             {
-                test:/\.(jpg|png|svg|jpeg|gif)$/,
+                test: /\.(jpg|png|svg|jpeg|gif)$/,
                 use: {
                     loader: "url-loader",
                     options: {
@@ -46,28 +46,31 @@ module.exports = {
                 }
             },
             {
-                test:/\.vue$/,
+                test: /\.vue$/,
                 loader: "vue-loader"
             }
         ]
-	},
-	plugins:[
-		new HtmlWebpackPlugin({
-			template: 'index.html',
-			filename: 'index.html'
-		}),
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+            filename: 'index.html'
+        }),
         new VueLoaderPlugin()
-	],
+    ],
     devServer: {
-        port: 9000,
+        port: 8080,
         host: '0.0.0.0',
         overlay: {
             errors: true
+        },
+        historyApiFallback: {
+            index: '/index.html'
         }
     },
-    resolve:{
-	    alias:{
-	        'vue':path.join(__dirname, './node_modules/vue/dist/vue.esm.js')
+    resolve: {
+        alias: {
+            'vue': path.join(__dirname, './node_modules/vue/dist/vue.esm.js')
         }
     }
 }

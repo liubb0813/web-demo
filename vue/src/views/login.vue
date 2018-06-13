@@ -1,6 +1,6 @@
 <template>
     <div>
-        Login
+        <router-link to="/">to home</router-link>
     </div>
 </template>
 
