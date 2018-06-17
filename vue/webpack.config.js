@@ -17,7 +17,11 @@ module.exports = {
                     loader: "babel-loader",
                     options: {
                         presets: [
-                            "env"
+                            "env",
+                            "stage-1"
+                        ],
+                        plugins: [
+                            "syntax-dynamic-import"
                         ]
                     }
                 },

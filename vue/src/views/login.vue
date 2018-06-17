@@ -1,12 +1,18 @@
 <template>
     <div>
-        <router-link to="/">to home</router-link>
+        <input type="text" v-model="userId"/>
+        <router-link :to="{path:'/index',query:{userId:userId}}">Login</router-link>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'Login'
+        name: 'Login',
+        data(){
+            return{
+                userId:''
+            }
+        }
     }
 </script>
 

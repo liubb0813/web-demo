@@ -1,12 +1,16 @@
 <template>
     <div class="main">
-        <router-link to="/login"> to login</router-link>
+        {{userId}}
+        <router-link to="/login"> Exit</router-link>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'Home'
+        props: ['userId'],
+        mounted() {
+            console.log(this.userId)
+        }
     }
 </script>
 

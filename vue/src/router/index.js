@@ -1,22 +1,9 @@
-import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '../views/home.vue';
-import Login from '../views/login.vue';
-
-Vue.use(Router)
+import routes from './routes.js'
 
 export default () => {
     return new Router({
-        routes: [
-            {
-                path: '/',
-                component: Home
-            },
-            {
-                path: '/login',
-                component: Login
-            }
-        ],
+        routes: routes,
         mode: 'history',
         scrollBehavior(to, from, stopPosition) {
             if (stopPosition) {
